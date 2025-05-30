@@ -32,17 +32,17 @@ const alphabet = [
 
 const url = "https://random-word-api.herokuapp.com/word?lang=it";
 
-const wordArray = [];
-
 export default function HomePage() {
   const [wordArray, setWordArray] = useState([]);
+  const [newWord, setNewWord] = useState("");
   const [selectedLetter, setSelectedLetter] = useState(null);
 
   const fetchWord = () => {
     axios.get(url).then((res) => {
-      const newWord = res.data[0];
-      setWordArray(...wordArray, newWord);
-      console.log(newWord);
+      const word = res.data[0];
+      setNewWord(word);
+      setWordArray((prev) => [...prev, word]);
+      console.log(word);
     });
   };
   useEffect(fetchWord, []);
@@ -59,8 +59,10 @@ export default function HomePage() {
       </div>
 
       <div className="container">
-        <div className="d-flex justify-content-center m-5">
-          qui ci va la parola random
+        <div className="d-flex justify-content-center m-5 gap-4">
+          {newWord.split("").map((char, index) => (
+            <span key={index}> __ </span>
+          ))}
         </div>
         <div className="container d-flex justify-content-around">
           {alphabet.map((letter, i) => (
