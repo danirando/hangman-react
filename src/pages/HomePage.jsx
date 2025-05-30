@@ -53,15 +53,26 @@ export default function HomePage() {
   };
 
   return (
-    <div className="container d-flex justify-content-around">
-      {alphabet.map((letter, i) => (
-        <div
-          onClick={() => handleLetterClick(letter)}
-          key={i}
-          className="letter-container">
-          {letter.toUpperCase()}
+    <>
+      <div className="d-flex justify-content-center mt-3">
+        <h1>HangMan</h1>
+      </div>
+
+      <div className="container">
+        <div className="d-flex justify-content-center m-5">
+          qui ci va la parola random
         </div>
-      ))}
-    </div>
+        <div className="container d-flex justify-content-around">
+          {alphabet.map((letter, i) => (
+            <div
+              onClick={() => handleLetterClick(letter)}
+              key={i}
+              className="letter-container">
+              {letter.toUpperCase()}
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
   );
 }
