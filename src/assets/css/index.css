@@ -9,3 +9,49 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+.letter-container.clicked {
+    background-color: #ccc;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* opzionale: lettere corrette */
+.letter-container.correct {
+    background-color: lightgreen;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* opzionale: lettere sbagliate */
+.letter-container.wrong {
+    background-color: salmon;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.error-container {
+    margin-top: 2rem;
+    color: red;
+}
+
+.win-container,
+.lose-container {
+    display: flex;
+    flex-direction: column;
+    background-color: green;
+    margin: 3rem;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    align-items: center;
+    gap: 2rem;
+}
+
+button {
+    width: 300px;
+}
+
+.lose-container {
+    background-color: red;
+}
